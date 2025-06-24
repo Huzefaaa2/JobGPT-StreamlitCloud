@@ -1,0 +1,1 @@
+# Uses Jinja2 template to generate a cover letter

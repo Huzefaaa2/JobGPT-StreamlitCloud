@@ -1,0 +1,7 @@
+streamlit
+langchain
+openai
+serpapi
+jinja2
+azure-functions
+python-dotenv
