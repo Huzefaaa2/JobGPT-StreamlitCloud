@@ -1,13 +1,13 @@
 from openai import AzureOpenAI
-import os
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
 client = AzureOpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    api_version=os.getenv("OPENAI_API_VERSION"),
-    azure_endpoint=os.getenv("OPENAI_API_BASE")
+    api_key=st.secrets("OPENAI_API_KEY"),
+    api_version=st.secrets("OPENAI_API_VERSION"),
+    azure_endpoint=st.secrets("OPENAI_API_BASE")
 )
 
 def match_resume_to_job(resume, job_description):
