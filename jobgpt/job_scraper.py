@@ -6,7 +6,7 @@ load_dotenv()
 
 # Uncomment this version if you have a SerpAPI key and want real job listings
 def fetch_jobs(query="AI Engineer", location="Remote", num_results=10):
-    api_key = st.secrets["SERPAPI_KEY"]
+    api_key = st.secrets("SERPAPI_KEY")
     if not api_key:
         raise ValueError("SERPAPI_KEY not found in .env file")
 
