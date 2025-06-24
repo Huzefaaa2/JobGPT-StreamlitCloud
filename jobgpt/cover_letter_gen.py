@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = AzureOpenAI(
-    api_key=st.secrets("OPENAI_API_KEY"),
-    api_version=st.secrets("OPENAI_API_VERSION"),
-    azure_endpoint=st.secrets("OPENAI_API_BASE")
+    api_key=st.secrets["OPENAI_API_KEY"],
+    api_version=st.secrets["OPENAI_API_VERSION"],
+    azure_endpoint=st.secrets["OPENAI_API_BASE"]
 )
 
 def generate_cover_letter(template_path, user_data):
