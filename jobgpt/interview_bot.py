@@ -1,3 +1,4 @@
+import os
 from openai import AzureOpenAI
 import streamlit as st
 from dotenv import load_dotenv

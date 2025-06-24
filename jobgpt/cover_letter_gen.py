@@ -1,3 +1,4 @@
+import os
 from jinja2 import Template
 from openai import AzureOpenAI
 import streamlit as st
