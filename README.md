@@ -1,34 +1,132 @@
 # 💼 JobGPT – AI-Powered Job Assistant (Streamlit Cloud Edition)
 
-JobGPT is an AI-powered job application assistant built with **Streamlit** and **Azure OpenAI**. It helps users:
+JobGPT is a powerful AI-driven assistant that helps job seekers automate and enhance their job application process. Built with **Streamlit**, **Azure OpenAI**, and **SerpAPI**, it enables users to:
 
-✅ Find jobs using SerpAPI  
-✅ Match resumes with job descriptions using AI  
+✅ Search and filter jobs online  
+✅ Match their resume with job descriptions using AI  
 ✅ Generate tailored cover letters  
-✅ Simulate job interview questions  
-
-Deployable in minutes on [Streamlit Cloud](https://streamlit.io/cloud).
+✅ Simulate interview questions
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [Deploy this app on Streamlit Cloud](https://streamlit.io/cloud)
+👉 [Streamlit Cloud](https://streamlit.io/cloud) – Deploy and use it instantly.
 
 ---
 
-## 🧠 Features
+## ✨ Features
 
-- 🔍 **Job Finder** – Search for relevant job listings using SerpAPI.
-- 📊 **Resume Matcher** – AI compares your resume with each job description and gives a relevance score.
-- ✍️ **Cover Letter Generator** – Generates a customized cover letter using Azure OpenAI.
-- 🎤 **Interview Simulator** – Simulates interview questions for your job role.
+- 🔍 **Job Finder** – Uses SerpAPI to find real-time job postings.
+- 📊 **Resume Matcher** – Calculates AI relevance between resume and job description.
+- ✍️ **Cover Letter Generator** – Auto-generates cover letters using GPT-4.
+- 🎤 **Interview Simulator** – Generates mock interview questions for preparation.
+- 🔗 **Apply Links** – Takes users to application pages or company websites.
 
 ---
 
-## 🚀 1. Deploy on Streamlit Cloud
+## 🚀 Deploy on Streamlit Cloud
 
-### Step 1: Clone This Repo to Your GitHub
+### 1. Clone This Repo to Your GitHub
+
+```
+git clone https://github.com/YOUR_USERNAME/JobGPT-StreamlitCloud.git
+```
+
+Then push it to your GitHub.
+
+### 2. Create a New Streamlit Cloud App
+
+- Go to [Streamlit Cloud](https://streamlit.io/cloud)
+- Click **“New app”**
+- Connect your GitHub repo
+- Fill in:
+  - **Repository:** `JobGPT-StreamlitCloud`
+  - **Branch:** `main`
+  - **Main file path:** `jobgpt/job_dashboard.py`
+
+### 3. Add Your Streamlit Cloud Secrets
+
+Click **“Edit Secrets”** and add:
+
+```toml
+OPENAI_API_KEY = "your-azure-openai-key"
+OPENAI_API_BASE = "https://your-resource-name.openai.azure.com/"
+OPENAI_API_VERSION = "2024-12-01-preview"
+OPENAI_DEPLOYMENT_NAME = "gpt-4"
+SERPAPI_KEY = "your-serpapi-api-key"
+```
+
+💡 Get SerpAPI key: [https://serpapi.com/manage-api-key](https://serpapi.com/manage-api-key)
+
+---
+
+## 🛠️ Local Development (Optional)
+
+### Prerequisites
+
+- Python 3.8+
+- Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+### Create a `.env` file
+
+```env
+OPENAI_API_KEY=your-key
+OPENAI_API_BASE=https://your-resource-name.openai.azure.com/
+OPENAI_API_VERSION=2024-12-01-preview
+OPENAI_DEPLOYMENT_NAME=gpt-4
+SERPAPI_KEY=your-serpapi-key
+```
+
+### Run App
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/JobGPT-StreamlitCloud.git
+streamlit run jobgpt/job_dashboard.py
+```
+
+---
+
+## 📂 Project Structure
+
+```
+JobGPT-StreamlitCloud/
+│
+├── jobgpt/
+│   ├── job_dashboard.py
+│   ├── resume_matcher.py
+│   ├── cover_letter_gen.py
+│   ├── interview_bot.py
+│   ├── job_scraper.py
+│   └── utils.py
+│
+├── templates/
+│   └── resume_template.jinja2
+│
+├── .streamlit/
+│   └── config.toml (optional)
+│
+├── .env (local only)
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 👨‍💻 Author
+
+**Huzefa Husain**  
+🔗 [LinkedIn](https://linkedin.com/in/huzefaaa)  
+💻 [GitHub](https://github.com/Huzefaaa2)
+
+---
+
+## 📄 License
+
+MIT License – use freely and responsibly.
+
+---
