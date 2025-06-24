@@ -3,6 +3,7 @@ from job_scraper import fetch_jobs
 from resume_matcher import match_resume_to_job
 from cover_letter_gen import generate_cover_letter
 from interview_bot import simulate_interview
+from PIL import Image
 import os
 
 st.set_page_config(page_title="JobGPT - AI Job Assistant", layout="wide", initial_sidebar_state="expanded")
@@ -42,7 +43,8 @@ st.markdown("""
 <p><b>🌐 Who is it for?</b> Freshers, Professionals, and Career Switchers.</p>
 """, unsafe_allow_html=True)
 
-st.image("ChatGPT Image Jun 24, 2025, 05_25_20 PM.png", use_column_width=True)
+banner = Image.open("jobgpt/jobgpt_banner.png")
+st.image(banner, use_container_width=True)
 
 # Sidebar Inputs
 with st.sidebar:
