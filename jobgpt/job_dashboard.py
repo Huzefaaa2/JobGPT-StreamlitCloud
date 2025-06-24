@@ -6,7 +6,32 @@ from interview_bot import simulate_interview
 import os
 
 st.set_page_config(page_title="JobGPT - AI Job Assistant", layout="wide")
-st.title("🤖 JobGPT - AI-Powered Job Assistant")
+st.markdown("""
+    <h1 style='text-align: center;'>🤖 JobGPT - AI-Powered Job Assistant</h1>
+    <p style='text-align: center; font-size:18px;'>Find the right jobs, tailor your resume, generate custom cover letters, and prepare for interviews — all in one place.</p>
+    <div style='display: flex; justify-content: center; gap: 20px; margin-top: 10px;'>
+        <a class="libutton" href="https://www.linkedin.com/in/huzefaaa/" target="_blank">🔗 Follow on LinkedIn</a>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7231479529104371712" target="_blank">📬 Subscribe to Newsletter</a>
+    </div>
+    <style>
+      .libutton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        width: 220px;
+        height: 36px;
+        border-radius: 18px;
+        background-color: #0A66C2;
+        font-family: "SF Pro Text", Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+""", unsafe_allow_html=True)
 
 # Sidebar Inputs
 with st.sidebar:
@@ -38,7 +63,6 @@ if st.session_state.get("search_done", False) and "jobs" in st.session_state:
             company = job.get("company_name", "the company")
             st.warning(f"❌ No direct apply link found. Please visit {company}'s official careers page to apply.")
 
-
         # Resume Match
         if resume_text:
             with st.expander("📊 Match My Resume"):
@@ -58,6 +82,5 @@ if st.session_state.get("search_done", False) and "jobs" in st.session_state:
                 st.write("Simulated Interview Questions:")
                 interview = simulate_interview(job.get("title", ""))
                 st.write(interview)
-
 else:
     st.info("ℹ️ Enter job preferences in the sidebar and click 'Find Jobs' to begin.")
