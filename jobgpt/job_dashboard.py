@@ -5,7 +5,7 @@ from cover_letter_gen import generate_cover_letter
 from interview_bot import simulate_interview
 import os
 
-st.set_page_config(page_title="JobGPT - AI Job Assistant", layout="wide")
+st.set_page_config(page_title="JobGPT - AI Job Assistant", layout="wide", initial_sidebar_state="expanded")
 st.title("🤖 JobGPT - AI-Powered Job Assistant")
 
 # Add LinkedIn Follow and Newsletter Buttons
@@ -30,8 +30,19 @@ st.markdown("""
     <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7231479529104371712" target="_blank">📰 Subscribe: Dominant Forces in AI</a>
 </div>
 
-<p><b>🚀 Stay ahead in the AI revolution!</b> Follow me and subscribe to <i>Dominant Forces in AI</i> for real-world AI & cloud projects, career tips, and exclusive insights.</p>
+<p><b>🚀 JobGPT is your AI career wingman!</b> Built with <b>Streamlit</b>, <b>Azure OpenAI</b>, and <b>SerpAPI</b>, it helps you:</p>
+<ul>
+    <li>✅ Search and filter jobs online</li>
+    <li>📊 Match your resume to job descriptions using AI</li>
+    <li>✍️ Generate tailored cover letters</li>
+    <li>🎤 Simulate interview questions</li>
+</ul>
+
+<p><b>🔧 Technologies Used:</b> Streamlit, Python, Azure OpenAI, SerpAPI</p>
+<p><b>🌐 Who is it for?</b> Freshers, Professionals, and Career Switchers.</p>
 """, unsafe_allow_html=True)
+
+st.image("ChatGPT Image Jun 24, 2025, 05_25_20 PM.png", use_column_width=True)
 
 # Sidebar Inputs
 with st.sidebar:
@@ -82,6 +93,5 @@ if st.session_state.get("search_done", False) and "jobs" in st.session_state:
                 st.write("Simulated Interview Questions:")
                 interview = simulate_interview(job.get("title", ""))
                 st.write(interview)
-
 else:
     st.info("ℹ️ Enter job preferences in the sidebar and click 'Find Jobs' to begin.")
