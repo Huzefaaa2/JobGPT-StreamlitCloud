@@ -6,31 +6,31 @@ from interview_bot import simulate_interview
 import os
 
 st.set_page_config(page_title="JobGPT - AI Job Assistant", layout="wide")
+st.title("🤖 JobGPT - AI-Powered Job Assistant")
+
+# Add LinkedIn Follow and Newsletter Buttons
 st.markdown("""
-    <h1 style='text-align: center;'>🤖 JobGPT - AI-Powered Job Assistant</h1>
-    <p style='text-align: center; font-size:18px;'>Find the right jobs, tailor your resume, generate custom cover letters, and prepare for interviews — all in one place.</p>
-    <div style='display: flex; justify-content: center; gap: 20px; margin-top: 10px;'>
-        <a class="libutton" href="https://www.linkedin.com/in/huzefaaa/" target="_blank">🔗 Follow on LinkedIn</a>
-        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7231479529104371712" target="_blank">📬 Subscribe to Newsletter</a>
-    </div>
-    <style>
-      .libutton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 7px;
-        text-align: center;
-        text-decoration: none !important;
-        color: #ffffff !important;
-        width: 220px;
-        height: 36px;
-        border-radius: 18px;
-        background-color: #0A66C2;
-        font-family: "SF Pro Text", Helvetica, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-      }
-    </style>
+<style>
+.libutton {
+    display: inline-block;
+    padding: 7px 16px;
+    margin: 4px 8px 16px 0;
+    text-align: center;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    border-radius: 16px;
+    background-color: #0A66C2;
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+    font-weight: bold;
+}
+</style>
+
+<div>
+    <a class="libutton" href="https://www.linkedin.com/in/huzefaaa/" target="_blank">🔗 Follow Me on LinkedIn</a>
+    <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7231479529104371712" target="_blank">📰 Subscribe: Dominant Forces in AI</a>
+</div>
+
+<p><b>🚀 Stay ahead in the AI revolution!</b> Follow me and subscribe to <i>Dominant Forces in AI</i> for real-world AI & cloud projects, career tips, and exclusive insights.</p>
 """, unsafe_allow_html=True)
 
 # Sidebar Inputs
@@ -82,5 +82,6 @@ if st.session_state.get("search_done", False) and "jobs" in st.session_state:
                 st.write("Simulated Interview Questions:")
                 interview = simulate_interview(job.get("title", ""))
                 st.write(interview)
+
 else:
     st.info("ℹ️ Enter job preferences in the sidebar and click 'Find Jobs' to begin.")
