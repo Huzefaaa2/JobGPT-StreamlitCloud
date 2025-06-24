@@ -1,14 +1,28 @@
-# Simulated interview Q&A with LLM
-# Content for interview_bot.py using LangChain
-interview_bot_code = '''\
-from langchain.chat_models import ChatOpenAI
-from langchain.schema import HumanMessage
+from openai import AzureOpenAI
 import os
+from dotenv import load_dotenv
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+load_dotenv()
 
-def simulate_interview(job_title="AI Engineer"):
-    prompt = f"Simulate an interview for the position of {job_title}. Ask me 5 questions and provide model answers."
-    response = llm([HumanMessage(content=prompt)])
-    return response.content
-'''
+client = AzureOpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    api_version=os.getenv("OPENAI_API_VERSION"),
+    azure_endpoint=os.getenv("OPENAI_API_BASE")
+)
+
+def simulate_interview(job_title):
+    try:
+        prompt = f"Conduct a simulated technical interview for the position of {job_title}. Ask 5 relevant questions that an experienced interviewer would ask."
+
+        response = client.chat.completions.create(
+            model=os.getenv("OPENAI_DEPLOYMENT_NAME"),
+            messages=[
+                {"role": "system", "content": "You are an expert technical interviewer."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7
+        )
+
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"Error simulating interview:\n\n{str(e)}"
