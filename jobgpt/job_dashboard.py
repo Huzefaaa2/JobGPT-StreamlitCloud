@@ -30,7 +30,7 @@ st.markdown("""
     <a class="libutton" href="https://www.linkedin.com/in/huzefaaa/" target="_blank">🔗 Follow Me on LinkedIn</a>
     <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7231479529104371712" target="_blank">📰 Subscribe: Dominant Forces in AI</a>
 </div>
-
+<p><b>✍️Enter job preferences in the sidebar and click 'Find Jobs' to begin.</b></p>
 <p><b>🚀 JobGPT is your AI career wingman!</b> Built with <b>Streamlit</b>, <b>Azure OpenAI</b>, and <b>SerpAPI</b>, it helps you:</p>
 <ul>
     <li>✅ Search and filter jobs online</li>
